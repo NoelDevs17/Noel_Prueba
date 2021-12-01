@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Noel_Prueba.Models.Persona>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Lista de Personas</h1>
+
+<p style="text-align:right;margin-right:20px;">
+    <a class="btn btn-outline-primary" asp-action="AddOrEdit">Crear nueva persona</a>
+</p>
+
+<div class="table-responsive">
+    
+        <table class="table table-sm">
+            <caption>Lista de personas</caption>
+
+            <tr>
+                
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayName("Fecha de Nacimiento")
+                </th>
+            </tr>
+
+      
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+                   
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaDeNacimiento)
+                    </td>
+
+                    <td class="text-center">
+                        <a asp-action="AddOrEdit" class="btn btn-outline-primary" asp-route-Id="@item.Id">Editar</a>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Details" class="btn btn-outline-info" asp-route-Id="@item.Id">Detalles</a>
+                    </td>
+                    <td class="text-center">
+                        <a asp-action="Delete" class="btn btn-outline-danger" asp-route-Id="@item.Id">Borrar</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+</div>

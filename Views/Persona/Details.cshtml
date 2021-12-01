@@ -1,0 +1,34 @@
+﻿@model Noel_Prueba.Models.Persona
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container p-3 my-3 border">
+    <h1>Personas</h1>
+    <hr />
+    <dl class="row">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayName("Fecha De Nacimiento")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaDeNacimiento)
+            </dd>
+
+        </dl>
+    </dl>
+    <div>
+        <a class="btn btn-primary" asp-action="AddOrEdit" asp-route-Id="@Model.Id">Editar</a>
+        <a class="btn btn-danger" asp-action="Index">Back</a>
+    </div>
+</div>
